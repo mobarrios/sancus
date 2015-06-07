@@ -13,7 +13,7 @@ class ItemController extends BaseController
 
 		$this->search_by =  array('code','name','description');
 
-		$this->img_path = "uploads/items/images/";
+		$this->img_path = "assets/items/images/";
 	}
 
 
