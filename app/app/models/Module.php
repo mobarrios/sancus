@@ -9,4 +9,8 @@ class Module extends Eloquent
 		return $this->hasMany('Permission');
 	}
 
+	public static function permissionsProfiles($id_profiles = null, $module = null)
+    {
+        return Permission::where('profile_id','=',$id_profiles)->where('module_id','=',$module->id)->get();
+    }
 }

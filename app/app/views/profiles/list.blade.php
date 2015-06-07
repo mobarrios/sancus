@@ -3,6 +3,7 @@
 		<thead>
 			<tr>
 				<th>{{ Lang::get('profile.profile') }}</th>
+				<th>Permisos</th>
 				<th class="action_row"></th>
 			</tr>
 		</thead>
@@ -11,6 +12,9 @@
 				@foreach($model  as $models)
 				<tr>
 					<td>{{$models->name}}</td>
+					<td>
+                    	<a href="{{route('permissions' ,$models->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-check"></i></a>
+                    </td>
 					<td>
 						<div class="btn-group btn-group-xs">
 							<a href="{{route($editPathMethodGet,$models->id)}}" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></a>

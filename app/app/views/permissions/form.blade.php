@@ -22,22 +22,18 @@
 								<th>Borrar</th>
 							</tr>
 						</thead>
-						<tbody>
-							
+						<tbody>							
 								@foreach($modules as $module)
 								<tr>
-									<td>{{$module->name}}</td>	
-
-									@foreach($module->PermissionsProfiles($profiles_id) as $permissions)
-						<td><input  permissions_type="read"  permissions_id="{{$permissions->id}}" type="checkbox" class="ck form_control" @if($permissions->read   == 1) {{'checked'}} @endif</td>
-						<td><input permissions_type="edit"  permissions_id="{{$permissions->id}}" type="checkbox" class="ck form_control" @if($permissions->edit   == 1) {{'checked'}} @endif</td>
-						<td><input permissions_type="add"  permissions_id="{{$permissions->id}}" type="checkbox" class="ck form_control" @if($permissions->add    == 1) {{'checked'}} @endif</td>
-						<td><input permissions_type="delete"  permissions_id="{{$permissions->id}}" type="checkbox" class="ck form_control" @if($permissions->delete == 1) {{'checked'}} @endif</td>
-									@endforeach
-															
+									<td>{{$module->name}}</td>
+									@foreach( Module::permissionsProfiles($profile_id, $module) as $permissions )
+										<td><input permissions_type="read"  	permissions_id="{{$permissions->id}}" type="checkbox" class="ck form_control" @if($permissions->read   == 1) {{'checked'}} @endif</td>
+										<td><input permissions_type="edit"  	permissions_id="{{$permissions->id}}" type="checkbox" class="ck form_control" @if($permissions->edit   == 1) {{'checked'}} @endif</td>
+										<td><input permissions_type="add"   	permissions_id="{{$permissions->id}}" type="checkbox" class="ck form_control" @if($permissions->add    == 1) {{'checked'}} @endif</td>
+										<td><input permissions_type="delete"  	permissions_id="{{$permissions->id}}" type="checkbox" class="ck form_control" @if($permissions->delete == 1) {{'checked'}} @endif</td>
+									@endforeach															
 								</tr>
-								@endforeach
-							
+								@endforeach							
 						</tbody>
 					</table>
 				</div>

@@ -13,6 +13,7 @@ class CreatePermissions extends Migration {
 	{
 		Schema::create('permissions', function($newtable)
 		{
+			$newtable->increments('id');
 			$newtable->integer('module_id')->nullable()->unsigned();
 			$newtable->integer('profile_id')->nullable()->unsigned();			
 			$newtable->boolean('read');

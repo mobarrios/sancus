@@ -7,7 +7,7 @@
 {{Form::texto('cell_phone', Lang::get('doctor.cellPhoneNumber'))}}
 {{Form::texto('national_license',	Lang::get('doctor.nationalLicense'))}}
 {{Form::texto('provincial_license',	Lang::get('doctor.provincialLicense'))}}
-
+<br/>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 	<div class="panel panel-default">
 	  <div class="panel-heading" role="tab" id="headingTwo">
