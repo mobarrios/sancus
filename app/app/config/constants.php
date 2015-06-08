@@ -168,4 +168,18 @@ return [
 
     'MEDICALINSURANCEPLAN_NEW_PATH_METHOD_POST'     => 'medicalinsurancesplans_new_post',
     'MEDICALINSURANCEPLAN_EDIT_PATH_METHOD_POST'    => 'medicalinsurancesplans_edit_post',
+
+    //Doctor Constants
+    'PERMISSION_MODULE_NAME'    => 'permissions',
+    'PERMISSION_MODULE_PATH'    => 'permissions',
+    'PERMISSION_MODEL_NAME'     => 'Permission',
+
+    'PERMISSION_MODEL_NAME_UPPER_CASE'    => 'PERMISSION',
+    'PERMISSION_NEW_PATH_METHOD_GET'      => 'permissions_new',
+    'PERMISSION_EDIT_PATH_METHOD_GET'     => 'permissions_edit',
+    'PERMISSION_DELETE_PATH_METHOD_GET'   => 'permissions_delete',
+    'PERMISSION_UPDATE_PATH_METHOD_GET'   => 'permissions_update',
+
+    'PERMISSION_NEW_PATH_METHOD_POST'     => 'permissions_new_post',
+    'PERMISSION_EDIT_PATH_METHOD_POST'    => 'permissions_edit_post',
 ];

@@ -3,7 +3,7 @@
 		<thead>
 			<tr>
 				<th>{{ Lang::get('profile.profile') }}</th>
-				<th>Permisos</th>
+				<th>{{ Lang::get('module.permissions') }}</th>
 				<th class="action_row"></th>
 			</tr>
 		</thead>
@@ -13,7 +13,7 @@
 				<tr>
 					<td>{{$models->name}}</td>
 					<td>
-                    	<a href="{{route('permissions' ,$models->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-check"></i></a>
+                    	<a href="{{route(Config::get('constants.PERMISSION_EDIT_PATH_METHOD_GET') ,$models->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-check"></i></a>
                     </td>
 					<td>
 						<div class="btn-group btn-group-xs">

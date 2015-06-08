@@ -27,6 +27,7 @@ require(__DIR__ . '/routes/caja.php');
 require(__DIR__ . '/routes/users.php');
 require(__DIR__ . '/routes/profiles.php');
 require(__DIR__ . '/routes/config/permissions.php');
+require(__DIR__ . '/routes/permissions.php');
 
 
 Route::get('/',function()

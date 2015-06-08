@@ -25,6 +25,11 @@ return array(
 	'medicalinsurances' => 'medical insurances',
 	'medicalinsurancesplans' => 'medical insurances plans',
 	'measurementunits' => 'measurement Units',
-
+	'permissions' => 'permissions',
+	'module' => 'Modulo',
+	'read' => 'Read',
+	'edit' => 'Edit',
+	'add' => 'Add',
+	'delete' => 'Delete',
 
 );

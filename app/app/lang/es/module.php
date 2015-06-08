@@ -25,5 +25,11 @@ return array(
 	'medicalinsurances' => 'obras sociales',
 	'medicalinsurancesplans' => 'planes de obras sociales',
 	'measurementunits' => 'unidades de medida',
+	'permissions' => 'permisos',
+	'module' => 'Modulo',
+	'read' => 'Ver',
+	'edit' => 'Editar',
+	'add' => 'Agregar',
+	'delete' => 'Eliminar',
 
 );

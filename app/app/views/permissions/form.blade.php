@@ -15,17 +15,17 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th>Sección</th>
-								<th>Ver</th>
-								<th>Editar</th>
-								<th>Agregar</th>
-								<th>Borrar</th>
+								<th>{{Lang::get('module.module')}}</th>
+								<th>{{Lang::get('module.read')}}</th>
+								<th>{{Lang::get('module.edit')}}</th>
+								<th>{{Lang::get('module.add')}}</th>
+								<th>{{Lang::get('module.delete')}}</th>
 							</tr>
 						</thead>
 						<tbody>							
 								@foreach($modules as $module)
 								<tr>
-									<td>{{$module->name}}</td>
+									<td>{{Lang::get("module.$module->name")}}</td>
 									@foreach( Module::permissionsProfiles($profile_id, $module) as $permissions )
 										<td><input permissions_type="read"  	permissions_id="{{$permissions->id}}" type="checkbox" class="ck form_control" @if($permissions->read   == 1) {{'checked'}} @endif</td>
 										<td><input permissions_type="edit"  	permissions_id="{{$permissions->id}}" type="checkbox" class="ck form_control" @if($permissions->edit   == 1) {{'checked'}} @endif</td>
@@ -64,7 +64,7 @@
 					    url: "permisos_update/"+id+"/"+type+"/"+value,
 					    dataType: "json",
 							  success: function(data){
-							  	alert('Dato Editado Correctamente!');
+							  	//alert('Dato Editado Correctamente!');
 					    		},                            
 					});
 
