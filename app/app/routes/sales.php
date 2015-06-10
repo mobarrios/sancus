@@ -1,27 +1,41 @@
 <?php
-	//Ventas
+	//Sales Routes
 
-	//Route::get('compras/{model?}/{search?}', 	array('as' => 'purchases', 				'uses'  => 'PurchasesController@getIndex'));
-	Route::get('ventas', 						array('as' => 'sales', 				'uses'  => 'SalesController@getNew'));
-	Route::get('ventas_lista', 					array('as' => 'sales_list', 		'uses'  => 'SalesController@getList'));
+	$modelUpperCase = Config::get('constants.SALE_MODEL_NAME_UPPER_CASE');
+	$controller 	= Config::get('constants.'.$modelUpperCase.'_MODEL_NAME').'Controller';
+	$module 		= Config::get('constants.'.$modelUpperCase.'_MODULE_NAME');
+
+	//variables
+	$moduleNewPathMethodGET 		= Config::get('constants.'.$modelUpperCase.'_NEW_PATH_METHOD_GET');
+	$moduleEditPathMethodGET 		= Config::get('constants.'.$modelUpperCase.'_EDIT_PATH_METHOD_GET');
+	$moduleDeletePathMethodGET 		= Config::get('constants.'.$modelUpperCase.'_DELETE_PATH_METHOD_GET');
+	$moduleListPathMethodGET 		= Config::get('constants.'.$modelUpperCase.'_LIST_PATH_METHOD_GET');
+	$moduleNewmodalPathMethodGET	= Config::get('constants.'.$modelUpperCase.'_NEWMODAL_PATH_METHOD_GET');
+	$moduleEditmodalPathMethodGET	= Config::get('constants.'.$modelUpperCase.'_EDITMODAL_PATH_METHOD_GET');
+	$moduleDeleteitemPathMethodGET	= Config::get('constants.'.$modelUpperCase.'_DELETEITEM_PATH_METHOD_GET');
+	$moduleProcessPathMethodGET		= Config::get('constants.'.$modelUpperCase.'_PROCESS_PATH_METHOD_GET');
+	$moduleCancelPathMethodGET		= Config::get('constants.'.$modelUpperCase.'_CANCEL_PATH_METHOD_GET');
+	$moduleReceiptPathMethodGET		= Config::get('constants.'.$modelUpperCase.'_RECEIPT_PATH_METHOD_GET');
 	
-	Route::get('ventas_nuevo_pagina', 			array('as' => 'sales_new_page',		'uses'  => 'SalesController@getNew'));
-	Route::get('ventas_nuevo', 					array('as' => 'sales_new_form', 	'uses'  => 'SalesController@formModal'));
-	
-	Route::get('ventas_editar/{id?}', 			array('as' => 'sales_edit_form',	'uses'	=> 'SalesController@formModal'));
-	Route::get('ventas_borrar/{id?}', 			array('as' => 'sales_delete',		'uses'	=> 'SalesController@getDel'));
+	$moduleNewPathMethodPOST 		= Config::get('constants.'.$modelUpperCase.'_NEW_PATH_METHOD_POST');
+	$moduleEditPathMethodPOST 		= Config::get('constants.'.$modelUpperCase.'_EDIT_PATH_METHOD_POST');
+	$moduleFinishPathMethodPOST		= Config::get('constants.'.$modelUpperCase.'_FINISH_PATH_METHOD_POST');
+	$moduleAdditemPathMethodPOST	= Config::get('constants.'.$modelUpperCase.'_ADDITEM_PATH_METHOD_POST');
 
-	Route::post('ventas_nuevo', 				array('as' => 'sales_post_new', 	'uses' 	=> 'SalesController@postNew'));
-	Route::post('ventas_editar/{id?}', 			array('as' => 'sales_post_edit', 	'uses' 	=> 'SalesController@postEdit'));
-	Route::post('cerrar_venta', 				array('as' => 'sales_post_close', 	'uses'  => 'SalesController@postNewsales'));
+	//GET
+	Route::get($module, 								array('as' => $module, 							'uses'  => $controller.'@getNew'));
+	Route::get($moduleListPathMethodGET, 				array('as' => $moduleListPathMethodGET, 		'uses'  => $controller.'@getList'));
+	Route::get($moduleNewPathMethodGET, 				array('as' => $moduleNewPathMethodGET,			'uses'  => $controller.'@getNew'));
+	Route::get($moduleNewmodalPathMethodGET,			array('as' => $moduleNewmodalPathMethodGET, 	'uses'  => $controller.'@formModal'));
+	Route::get($moduleEditmodalPathMethodGET.'/{id?}', 	array('as' => $moduleEditmodalPathMethodGET,	'uses'	=> $controller.'@formModal'));
+	Route::get($moduleDeletePathMethodGET.'/{id?}', 	array('as' => $moduleDeletePathMethodGET,		'uses'	=> $controller.'@getDel'));
+	Route::get($moduleDeleteitemPathMethodGET.'/{id}',	array('as' => $moduleDeleteitemPathMethodGET, 	'uses'	=> $controller.'@getDelitem'));
+	Route::get($moduleProcessPathMethodGET, 	   		array('as' => $moduleProcessPathMethodGET, 		'uses'	=> $controller.'@getProcess'));
+	Route::get($moduleReceiptPathMethodGET.'/{id}', 	array('as' => $moduleReceiptPathMethodGET, 		'uses'	=> $controller.'@getRemito'));
+	Route::get($moduleCancelPathMethodGET, 				array('as' => $moduleCancelPathMethodGET, 		'uses'  => $controller.'@getCancel'));
 
-	Route::post('additem_sales', 'SalesController@postAdditem');
-
-	Route::get('delitem_sales/{id}',			array('as'=>'sales_delitem', 'uses'=>'SalesController@getDelitem'));
-	Route::get('process_sales', 	   			array('as'=>'sales_process', 'uses'=>'SalesController@getProcess'));
-
-	Route::get('remito_sales/{id}', 			array('as'=>'sales_remito', 'uses'=>'SalesController@getRemito'));
-
-	Route::get('cancelar', 						array('as' => 'sales_cancel', 'uses' => 'SalesController@getCancel'));
-
-?>
+	//POST
+	Route::post($moduleNewPathMethodPOST, 				array('as' => $moduleNewPathMethodPOST,	 		'uses' 	=> $controller.'@postNew'));
+	Route::post($moduleEditPathMethodPOST.'/{id?}',		array('as' => $moduleEditPathMethodPOST, 		'uses' 	=> $controller.'@postEdit'));
+	Route::post($moduleFinishPathMethodPOST, 			array('as' => $moduleFinishPathMethodPOST, 		'uses'  => $controller.'@postNewsales'));
+	Route::post($moduleAdditemPathMethodPOST, 			$controller.'@postAdditem');

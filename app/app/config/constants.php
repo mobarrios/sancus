@@ -83,13 +83,15 @@ return [
     'CLIENT_MODULE_PATH'    => 'clients',
     'CLIENT_MODEL_NAME'     => 'Client',
 
-    'CLIENT_MODEL_NAME_UPPER_CASE'    => 'CLIENT',
-    'CLIENT_NEW_PATH_METHOD_GET'      => 'clients_new',
-    'CLIENT_EDIT_PATH_METHOD_GET'     => 'clients_edit',
-    'CLIENT_DELETE_PATH_METHOD_GET'   => 'clients_delete',
+    'CLIENT_MODEL_NAME_UPPER_CASE'  => 'CLIENT',
+    'CLIENT_NEW_PATH_METHOD_GET'    => 'clients_new',
+    'CLIENT_EDIT_PATH_METHOD_GET'   => 'clients_edit',
+    'CLIENT_DELETE_PATH_METHOD_GET' => 'clients_delete',
 
-    'CLIENT_NEW_PATH_METHOD_POST'     => 'clients_new_post',
-    'CLIENT_EDIT_PATH_METHOD_POST'    => 'clients_edit_post',
+    'CLIENT_NEW_PATH_METHOD_POST'   => 'clients_new_post',
+    'CLIENT_EDIT_PATH_METHOD_POST'  => 'clients_edit_post',
+
+    'CLIENT_SEARCH_PATH'            => 'clients_search',
 
     //Sale Constants
     'SALE_MODULE_NAME'  => 'sales',
@@ -182,4 +184,70 @@ return [
 
     'PERMISSION_NEW_PATH_METHOD_POST'     => 'permissions_new_post',
     'PERMISSION_EDIT_PATH_METHOD_POST'    => 'permissions_edit_post',
+
+    //Sale Constants
+    'SALE_MODULE_NAME'    => 'sales',
+    'SALE_MODULE_PATH'    => 'sales',
+    'SALE_MODEL_NAME'     => 'Sale',
+
+    'SALE_MODEL_NAME_UPPER_CASE'        => 'SALE',
+    'SALE_NEW_PATH_METHOD_GET'          => 'sales_new',
+    'SALE_EDIT_PATH_METHOD_GET'         => 'sales_edit',
+    'SALE_DELETE_PATH_METHOD_GET'       => 'sales_delete',
+    'SALE_UPDATE_PATH_METHOD_GET'       => 'sales_update',
+    'SALE_LIST_PATH_METHOD_GET'         => 'sales_list',
+    'SALE_NEWMODAL_PATH_METHOD_GET'     => 'sales_newmodal',
+    'SALE_EDITMODAL_PATH_METHOD_GET'    => 'sales_editmodal',
+    'SALE_DELETEITEM_PATH_METHOD_GET'   => 'sales_deleteitem',
+    'SALE_PROCESS_PATH_METHOD_GET'      => 'sales_process',
+    'SALE_RECEIPT_PATH_METHOD_GET'      => 'sales_receipt',
+    'SALE_CANCEL_PATH_METHOD_GET'       => 'sales_cancel',
+
+    'SALE_FINISH_PATH_METHOD_POST'      => 'sales_finish',
+    'SALE_NEW_PATH_METHOD_POST'         => 'sales_new_post',
+    'SALE_EDIT_PATH_METHOD_POST'        => 'sales_edit_post',
+    'SALE_ADDITEM_PATH_METHOD_POST'     => 'sales_additem',
+
+    //Purchase Constants
+    'PURCHASE_MODULE_NAME'    => 'purchases',
+    'PURCHASE_MODULE_PATH'    => 'purchases',
+    'PURCHASE_MODEL_NAME'     => 'Purchase',
+
+    'PURCHASE_MODEL_NAME_UPPER_CASE'    => 'PURCHASE',
+    'PURCHASE_NEW_PATH_METHOD_GET'      => 'purchases_new',
+    'PURCHASE_EDIT_PATH_METHOD_GET'     => 'purchases_edit',
+    'PURCHASE_DELETE_PATH_METHOD_GET'   => 'purchases_delete',
+    'PURCHASE_UPDATE_PATH_METHOD_GET'   => 'purchases_update',
+
+    'PURCHASE_NEW_PATH_METHOD_POST'     => 'purchases_new_post',
+    'PURCHASE_EDIT_PATH_METHOD_POST'    => 'purchases_edit_post',
+
+    //Rent Constants
+    'RENT_MODULE_NAME'    => 'rents',
+    'RENT_MODULE_PATH'    => 'rents',
+    'RENT_MODEL_NAME'     => 'Rent',
+
+    'RENT_MODEL_NAME_UPPER_CASE'    => 'RENT',
+    'RENT_NEW_PATH_METHOD_GET'      => 'rents_new',
+    'RENT_EDIT_PATH_METHOD_GET'     => 'rents_edit',
+    'RENT_DELETE_PATH_METHOD_GET'   => 'rents_delete',
+    'RENT_UPDATE_PATH_METHOD_GET'   => 'rents_update',
+
+    'RENT_NEW_PATH_METHOD_POST'     => 'rents_new_post',
+    'RENT_EDIT_PATH_METHOD_POST'    => 'rents_edit_post',
+
+    //Due constants
+    'DUE_MODULE_NAME'    => 'dues',
+    'DUE_MODULE_PATH'    => 'dues',
+    'DUE_MODEL_NAME'     => 'Due',
+
+    'DUE_MODEL_NAME_UPPER_CASE'    => 'DUE',
+    'DUE_NEW_PATH_METHOD_GET'      => 'dues_new',
+    'DUE_EDIT_PATH_METHOD_GET'     => 'dues_edit',
+    'DUE_DELETE_PATH_METHOD_GET'   => 'dues_delete',
+    'DUE_UPDATE_PATH_METHOD_GET'   => 'dues_update',
+
+    'DUE_NEW_PATH_METHOD_POST'     => 'dues_new_post',
+    'DUE_EDIT_PATH_METHOD_POST'    => 'dues_edit_post',
+
 ];

@@ -14,11 +14,14 @@ class CreateSales extends Migration {
 		Schema::create('sales', function($newtable)
         {
 		   $newtable->increments('id');
-		   $newtable->date('sale_date');
-		   $newtable->integer('client_id')->nullable()->unsigned();
-		   $newtable->float('amount');		   
+		   $newtable->date('sale_date');		   
+		   $newtable->float('amount');
+
 		   $newtable->timestamps();
 		   $newtable->softDeletes();
+		   
+		   //relations
+		   $newtable->integer('client_id')->nullable()->unsigned();
 		   $newtable->foreign('client_id')->references('id')->on('clients');
         });
 	}

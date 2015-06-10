@@ -13,8 +13,9 @@ return array(
 	|
 	*/
 
-	'add' => 'Agregar',
-	'edit' => 'Editar',
-	'delete' => 'Borrar',
-	'read' => 'Leer',
+	'add' 		=> 'Agregar',
+	'edit' 		=> 'Editar',
+	'delete' 	=> 'Borrar',
+	'read' 		=> 'Leer',
+	'new'		=> 'Nueva',
 );

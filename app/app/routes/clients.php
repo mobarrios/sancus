@@ -13,6 +13,7 @@
 	$moduleNewPathMethodPOST 	= Config::get('constants.'.$modelUpperCase.'_NEW_PATH_METHOD_POST');
 	$moduleEditPathMethodPOST 	= Config::get('constants.'.$modelUpperCase.'_EDIT_PATH_METHOD_POST');
 
+	$moduleSearchPath			= Config::get('constants.'.$modelUpperCase.'_SEARCH_PATH');
 
 	//GET
 	Route::get($module.'/{model?}/{search?}', 		array('as' => $module, 						'uses'  => $controller.'@getIndex'));
@@ -23,3 +24,18 @@
 	//POST
 	Route::post($moduleNewPathMethodPOST, 			array('as' => $moduleNewPathMethodPOST, 	'uses' 	=> $controller.'@postNew'));
 	Route::post($moduleEditPathMethodPOST.'/{id?}', array('as' => $moduleEditPathMethodPOST, 	'uses' 	=> $controller.'@postEdit'));
+
+	Route::post($moduleSearchPath, function()
+	{
+			$data = Input::get('search');
+			$resp = Client::where('name','like','%'.$data.'%')
+					->orWhere('last_name','like','%'.$data.'%')
+					->orWhere('dni','like','%'.$data.'%')
+					->get();
+			$res  = array();
+			foreach($resp as $r)
+			{
+				$res[] = array('id' => $r->id , 'label' => $r->name .' '.$r->last_name.' - '.$r->company_name );
+			}
+			return Response::json($res);
+	});

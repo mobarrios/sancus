@@ -22,7 +22,7 @@
 						@yield('extra')
 				</div>
 				<hr>
-				@include($ruta.'/'.$ruta.'_list')
+				@include($ruta.'/'list')
 			  </div>
 		</div>
 

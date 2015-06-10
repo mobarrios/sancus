@@ -8,7 +8,7 @@
 
 		<div class="panel panel-default">
 			  <div class="panel-heading">
-					<h3 class="panel-title">{{$modulo}} : {{$seccion}}</h3>
+					<h3 class="panel-title">{{Lang::get("module.$module")}} : {{Lang::get("action.$action")}}</h3>
 			  </div>
 			  <div class="panel-body">				
 
@@ -31,7 +31,7 @@
 					          		{{ Form::date('date') }}   
 					          	@endif
 					           <br>
-					         	<input class="form-control" placeholder='Cliente' id="client_name" value="{{Session::get('data')['client_name']}}"  >
+					         	<input class="form-control" placeholder='Cliente' id="client_name" value="{{Session::get('data')['client_name']}}">
 					         	<input type="hidden" name="client_id" id="client_id" data-id="">
 					        </div>
 					      </div>
@@ -167,10 +167,10 @@
 					source: function(request, response) {
 					$.ajax({
 					type: "POST",
-					url: "client_search",
+					url: 'clients_search',
 					data:  {search : $("#client_name").val() },
 					dataType: "json",
-						  success: function(data){
+						success: function(data){
 						//$.each(data, function(key, value) {
 						//	console.log (key);
 						//});
@@ -218,10 +218,6 @@
                 	}
                 });
 
-				
-				
-
-
 				$('#del_item').on('click',function(){
 					arr_item.splice(0,$(this).attr('data-id'));
 					console.log(arr_item);
@@ -240,27 +236,6 @@
 			  		
 
  				});
-				//post by ajax add item
-				/*
-			  	 $('#add_item').on('click',function(){
-			  		 $.ajax({  
-			  		 	type: "POST",  
-			  		 	url: "additem",  
-			  		 	data: { item_id: $('#item').attr('data-id') , quantity: $('#cantidad').val() , discount:$('#dto').val() },  
-			  		 	
-
-			  		 	});
-			  		 
-
-			  	 	var item = $('#item').val();
-			  	 	var cant = $('#cantidad').val();
-			  	 	var dto  = $('#dto').val();
-
-			  	 	var content = '<tr><td>'+cant+'</td><td>'+item+'</td><td>'+dto+'</td><td> $ </td></tr>';
-
-			  	 	$('#table_items_body').append(content);			  	 	
-			  	 });
-				*/
 				
 		</script>
 	@endsection

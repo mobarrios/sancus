@@ -16,11 +16,14 @@ class CreateSalesTemporal extends Migration {
 		   $newtable->increments('id');
 		   $newtable->date('sale_date');		   
 		   $newtable->float('amount');
-		   $newtable->integer('client_id')->nullable()->unsigned();
-		   $newtable->integer('sale_id')->nullable()->unsigned();
 		   $newtable->timestamps();
 		   $newtable->softDeletes();
+
+		   //relations
+		   $newtable->integer('client_id')->nullable()->unsigned();
 		   $newtable->foreign('client_id')->references('id')->on('clients');
+
+		   $newtable->integer('sale_id')->nullable()->unsigned();		   
 		   $newtable->foreign('sale_id')->references('id')->on('sales');
         });
 	}

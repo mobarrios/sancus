@@ -13,19 +13,23 @@ class CreateSalesItems extends Migration {
 	{
 		Schema::create('sales_items', function($newtable)
         {		  
-           $newtable->increments('id'); 
-           $newtable->integer('sale_id')->nullable()->unsigned();
-           $newtable->integer('sale_temporal_id')->nullable()->unsigned();
-           $newtable->integer('item_id')->nullable()->unsigned();
+           $newtable->increments('id');
+           
 		   $newtable->integer('quantity');
 		   $newtable->float('discount');
-		   $newtable->float('price_per_unit');		   		   
+		   $newtable->float('price_per_unit');  		   
 		   $newtable->timestamps();
 		   $newtable->softDeletes();
+
+		   //relations
+		   $newtable->integer('sale_id')->nullable()->unsigned();
 		   $newtable->foreign('sale_id')->references('id')->on('sales');
-		   $newtable->foreign('sale_temporal_id')->references('id')->on('sales_temporal');
+           
+           $newtable->integer('sale_temporal_id')->nullable()->unsigned();
+           $newtable->foreign('sale_temporal_id')->references('id')->on('sales_temporal');
+           
+           $newtable->integer('item_id')->nullable()->unsigned();  
 		   $newtable->foreign('item_id')->references('id')->on('items');
-		  
         });
 	}
 
