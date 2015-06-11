@@ -250,4 +250,19 @@ return [
     'DUE_NEW_PATH_METHOD_POST'     => 'dues_new_post',
     'DUE_EDIT_PATH_METHOD_POST'    => 'dues_edit_post',
 
+    //Paymentoptions
+    'PAYMENTOPTION_MODULE_NAME'    => 'paymentoptions',
+    'PAYMENTOPTION_MODULE_PATH'    => 'paymentoptions',
+    'PAYMENTOPTION_MODEL_NAME'     => 'Paymentoption',
+
+    'PAYMENTOPTION_MODEL_NAME_UPPER_CASE'    => 'PAYMENTOPTION',
+    'PAYMENTOPTION_NEW_PATH_METHOD_GET'      => 'paymentoptions_new',
+    'PAYMENTOPTION_EDIT_PATH_METHOD_GET'     => 'paymentoptions_edit',
+    'PAYMENTOPTION_DELETE_PATH_METHOD_GET'   => 'paymentoptions_delete',
+    'PAYMENTOPTION_UPDATE_PATH_METHOD_GET'   => 'paymentoptions_update',
+
+    'PAYMENTOPTION_NEW_PATH_METHOD_POST'     => 'paymentoptions_new_post',
+    'PAYMENTOPTION_EDIT_PATH_METHOD_POST'    => 'paymentoptions_edit_post',
+
+
 ];

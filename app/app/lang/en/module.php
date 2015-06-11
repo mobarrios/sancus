@@ -8,7 +8,7 @@ return array(
 	|--------------------------------------------------------------------------
 	|
 	| This file contains the translations needed for the application
-	| in order to set the proper content in spanish language
+	| in order to set the proper content in english language
 	| because as an standard the main language is english
 	|
 	*/
@@ -31,5 +31,6 @@ return array(
 	'edit' => 'Edit',
 	'add' => 'Add',
 	'delete' => 'Delete',
+	'paymentoptions' => '',
 
 );

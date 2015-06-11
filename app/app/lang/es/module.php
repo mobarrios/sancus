@@ -31,5 +31,5 @@ return array(
 	'edit' => 'Editar',
 	'add' => 'Agregar',
 	'delete' => 'Eliminar',
-
+	'paymentoptions' => 'Medios de pago',
 );

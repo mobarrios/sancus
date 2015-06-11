@@ -12,4 +12,3 @@ class Doctor extends Eloquent
 		return $this->belongsToMany('Medicalinsurance', 'doctors_medicalinsurances', 'doctor_id', 'medicalinsurance_id');
 	}
 }
-?>

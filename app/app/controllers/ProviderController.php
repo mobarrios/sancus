@@ -13,5 +13,3 @@ class ProviderController extends BaseController
 		$this->search_by = array('name','last_name','dni','email','company_name','cuit');
 	}
 }
-
-?>
