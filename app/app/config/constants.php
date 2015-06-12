@@ -25,6 +25,7 @@ return [
 
     'ITEM_NEW_PATH_METHOD_POST'     => 'items_new_post',
     'ITEM_EDIT_PATH_METHOD_POST'    => 'items_edit_post',
+    'ITEM_SEARCH_PATH_METHOD_POST'  => 'items_search',   
 
     //Category Constants
     'CATEGORY_MODULE_NAME'  => 'categories',
@@ -91,20 +92,7 @@ return [
     'CLIENT_NEW_PATH_METHOD_POST'   => 'clients_new_post',
     'CLIENT_EDIT_PATH_METHOD_POST'  => 'clients_edit_post',
 
-    'CLIENT_SEARCH_PATH'            => 'clients_search',
-
-    //Sale Constants
-    'SALE_MODULE_NAME'  => 'sales',
-    'SALE_MODULE_PATH'  => 'sales',
-    'SALE_MODEL_NAME'   => 'Sale',
-
-    'SALE_MODEL_NAME_UPPER_CASE'    => 'SALE',
-    'SALE_NEW_PATH_METHOD_GET'      => 'sales_new',
-    'SALE_EDIT_PATH_METHOD_GET'     => 'sales_edit',
-    'SALE_DELETE_PATH_METHOD_GET'   => 'sales_delete',
-
-    'SALE_NEW_PATH_METHOD_POST'     => 'sales_new_post',
-    'SALE_EDIT_PATH_METHOD_POST'    => 'sales_edit_post',
+    'CLIENT_SEARCH_PATH_METHOD_POST'=> 'clients_search',
 
     //Purchase Constants
     'PURCHASE_MODULE_NAME'  => 'purchases',

@@ -3,7 +3,7 @@
 class SaleController extends BaseController
 {
 	protected $data 		= array();
-	protected $search_by 	=  array();
+	protected $search_by 	= array();
 
 	public function __construct()
 	{
@@ -112,7 +112,7 @@ class SaleController extends BaseController
 		//datos del remito
 		if(!Session::has('data'))
 		{	
-			$client 	= Clients::find($client_id_sales);
+			$client 	= Client::find($client_id_sales);
 			$data 		= array('date'			=> $date_sales,
 								'client_id'		=> $client_id_sales, 
 								'client_name'	=> $client->name.' '. $client->last_name .' - '.$client->company_name
@@ -123,7 +123,7 @@ class SaleController extends BaseController
 		
 		//items de remito
 		
-		$item 			= Items::find(Input::get('item_id'));
+		$item 			= Item::find(Input::get('item_id'));
 
 		if(!Session::has('array_items'))
 		{	

@@ -12,13 +12,15 @@
 			  </div>
 			  <div class="panel-body">				
 
-					{{Form::open(array('url'=>'additem_sales', 'id'=>'form_add_item'))}}
+					{{Form::open(array('url'=>Config::get('constants.SALE_ADDITEM_PATH_METHOD_POST'), 'id'=>'form_add_item'))}}
 					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
 					    <div class="panel panel-default">
+
 					      <div class="panel-heading" role="tab" id="headingTwo">
 					        <h4 class="panel-title">
 					          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#2" aria-expanded="false" aria-controls="collapseTwo">
-					          Datos
+					          {{Lang::get('sales.data')}}
 					          </a>
 					        </h4>
 					      </div>
@@ -32,28 +34,48 @@
 					          	@endif
 					           <br>
 					         	<input class="form-control" placeholder='Cliente' id="client_name" value="{{Session::get('data')['client_name']}}">
-					         	<input type="hidden" name="client_id" id="client_id" data-id="">
+					         	<input type="hidden" name="client_id" id="client_id" data-id="{{Session::get('data')['client_id']}}" value="{{Session::get('data')['client_id']}}">
 					        </div>
 					      </div>
+
 					    </div>
-					      <div class="panel panel-default">
-					      <div class="panel-heading" role="tab" id="headingThree">
-					        <h4 class="panel-title">
-					          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#4" aria-expanded="false" aria-controls="collapseThree">
-					            Articulos
-					          </a>
-					        </h4>
-					      </div>
-					      <div id="4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">  
-					        <div class="panel-body">
 
-								<div class="col-xs-12">
-									<input class="form-control" placeholder='Articulo' id="item" data-id="">
-									<input type="hidden" id="item_id" name="item_id" data-id="">
-								</div>
-								<hr>
+					    <div class="panel panel-default">
 
-							
+						      <div class="panel-heading" role="tab" id="headingThree">
+						        <h4 class="panel-title">
+						          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#4" aria-expanded="false" aria-controls="collapseThree">
+						           {{Lang::get('sales.paymentOption')}}
+						          </a>
+						        </h4>
+						      </div>
+
+						      <div id="4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">  
+						        <div class="panel-body">
+									<div class="col-xs-12">
+										{{Form::paymentoption('paymentoption_id', Lang::get('sales.paymentOption'))}}
+									</div>								
+						        </div>
+						      </div>
+					    </div>
+
+					    <div class="panel panel-default">
+
+						      <div class="panel-heading" role="tab" id="headingThree">
+						        <h4 class="panel-title">
+						          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#4" aria-expanded="false" aria-controls="collapseThree">
+						            Articulos
+						          </a>
+						        </h4>
+						      </div>
+
+						      <div id="4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">  
+						        <div class="panel-body">
+									<div class="col-xs-12">
+										<input class="form-control" placeholder='Articulo' id="item" data-id="">
+										<input type="hidden" id="item_id" name="item_id" data-id="">
+									</div>
+									<hr>							
 									<div class="col-xs-2">
 										<input class="form-control" placeholder='Cantidad' id='cantidad' name="cantidad">
 									</div>
@@ -64,21 +86,19 @@
 									<div class="col-xs-8">
 										<input class="form-control" placeholder='Observaciones' id='observations' name="observations">
 									</div>
-							<br>
-							<br>
-
-
-								<div class="col-xs-12">
-									<a id='add_item' class='btn btn-xs btn-success'><span class="fa fa-plus"></span> Agregar </a>
-								</div>
-								{{Form::close()}}
-					        </div>
-					      </div>
+									<br>
+									<br>
+									<div class="col-xs-12">
+										<a id='add_item' class='btn btn-xs btn-success'><span class="fa fa-plus"></span> Agregar </a>
+									</div>
+									{{Form::close()}}
+						        </div>
+						      </div>
 					    </div>
+
 					    <br>
+
 					    <table class="table table-striped table-hover  table-responsive">
-					    	
-					    
 					    	<thead>
 					    		<tr>
 					    			<th>Cod.</th>
@@ -109,19 +129,18 @@
 					    				<td>{{$key['description']}}</td>
 					    				<td> $ {{$key['$']}}</td>
 					    				<td> $ {{$key['subtotal'] }}</td>	
-					    				<td><a href="{{route('sales_delitem', $item )}}" class="del_confirm pull-right"><i class="fa fa-remove"></i></a>
+					    				<td><a href="{{route(Config::get('constants.SALE_DELETEITEM_PATH_METHOD_GET'), $item )}}" class="del_confirm pull-right"><i class="fa fa-remove"></i></a>
 					    				</td>	    			
 					    			</tr>
 					    			@endforeach
 					    		@endif
-					    	</tbody>
-	    	
+					    	</tbody>	    	
 					    </table>
 			
-			<hr>		 
-					  <a href="{{route('sales_cancel')}}" id="cancel" class="del btn btn-danger">Cancelar</a>
-					 <a id="process" class="btn btn-success">Procesar</a>
-					  </div>
+						<hr>		 
+					  	<a href="{{route('sales_cancel')}}" id="cancel" class="del btn btn-danger">Cancelar</a>
+					 	<a id="process" class="btn btn-success">Procesar</a>
+					</div>
 			  </div>
 		</div>
 
@@ -167,7 +186,7 @@
 					source: function(request, response) {
 					$.ajax({
 					type: "POST",
-					url: 'clients_search',
+					url: '{{Config::get("constants.CLIENT_SEARCH_PATH_METHOD_POST")}}',
 					data:  {search : $("#client_name").val() },
 					dataType: "json",
 						success: function(data){
@@ -195,7 +214,7 @@
                     source: function(request, response) {
                         $.ajax({
                             type: "POST",
-                            url: "item_search",
+                            url: '{{Config::get("constants.ITEM_SEARCH_PATH_METHOD_POST")}}',
                             data:  {search : $("#item").val() },
                             dataType: "json",
       						  success: function(data){

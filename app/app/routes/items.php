@@ -12,6 +12,7 @@
 
 	$moduleNewPathMethodPOST 	= Config::get('constants.'.$modelUpperCase.'_NEW_PATH_METHOD_POST');
 	$moduleEditPathMethodPOST 	= Config::get('constants.'.$modelUpperCase.'_EDIT_PATH_METHOD_POST');
+	$moduleSearchPathMethodPOST	= Config::get('constants.'.$modelUpperCase.'_SEARCH_PATH_METHOD_POST');
 
 
 	//GET
@@ -23,3 +24,23 @@
 	//POST
 	Route::post($moduleNewPathMethodPOST, 			array('as' => $moduleNewPathMethodPOST, 	'uses' 	=> $controller.'@postNew'));
 	Route::post($moduleEditPathMethodPOST.'/{id?}', array('as' => $moduleEditPathMethodPOST, 	'uses' 	=> $controller.'@postEdit'));
+
+	Route::post($moduleSearchPathMethodPOST, function()
+	{
+		$data = Input::get('search');
+		$resp = Item::where('code','like','%'.$data.'%')
+				->orWhere('name','like','%'.$data.'%')
+				->orWhere('description','like','%'.$data.'%')
+				->get();
+		$res =  array();
+		foreach($resp as $r)
+		{
+			
+			$res[] = array(	'id' => $r->id , 
+							'label' => $r->name .'$ ' . $r->sell_price , 
+							'value' => $r->name ,
+							'sell_price' => $r->sell_price);
+			
+		}
+		return Response::json($res);
+	});

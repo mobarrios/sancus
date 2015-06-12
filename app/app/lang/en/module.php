@@ -31,6 +31,6 @@ return array(
 	'edit' => 'Edit',
 	'add' => 'Add',
 	'delete' => 'Delete',
-	'paymentoptions' => '',
+	'paymentoptions' => 'Payment options',
 
 );

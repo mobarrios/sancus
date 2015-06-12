@@ -13,7 +13,7 @@
 	$moduleNewPathMethodPOST 	= Config::get('constants.'.$modelUpperCase.'_NEW_PATH_METHOD_POST');
 	$moduleEditPathMethodPOST 	= Config::get('constants.'.$modelUpperCase.'_EDIT_PATH_METHOD_POST');
 
-	$moduleSearchPath			= Config::get('constants.'.$modelUpperCase.'_SEARCH_PATH');
+	$moduleSearchPathMethodPOST	= Config::get('constants.'.$modelUpperCase.'_SEARCH_PATH_METHOD_POST');
 
 	//GET
 	Route::get($module.'/{model?}/{search?}', 		array('as' => $module, 						'uses'  => $controller.'@getIndex'));
@@ -25,7 +25,7 @@
 	Route::post($moduleNewPathMethodPOST, 			array('as' => $moduleNewPathMethodPOST, 	'uses' 	=> $controller.'@postNew'));
 	Route::post($moduleEditPathMethodPOST.'/{id?}', array('as' => $moduleEditPathMethodPOST, 	'uses' 	=> $controller.'@postEdit'));
 
-	Route::post($moduleSearchPath, function()
+	Route::post($moduleSearchPathMethodPOST, function()
 	{
 			$data = Input::get('search');
 			$resp = Client::where('name','like','%'.$data.'%')

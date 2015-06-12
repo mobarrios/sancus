@@ -40,6 +40,17 @@ Form::macro('medicalinsurance', function($field, $label)
     return buildInput($input,$label);
 });
 
+Form::macro('paymentoption', function($field, $label)
+{
+    $value  = Form::getValueAttribute($field);
+
+    $paymentoption = Paymentoption::lists('name','id');
+
+    $input  = Form::select($field, $paymentoption, $value, array('class'=>'form-control'));
+
+    return buildInput($input,$label);
+});
+
 Form::macro('profiles', function($name, $label)
 {
     $value  = Form::getValueAttribute($name);
