@@ -15,5 +15,7 @@ return array(
 
 	'data' 				=> 'Data',
 	'paymentOption' 	=> 'Payment Option',
+	'doctor'			=> 'Doctor',
+	'doctorScore'		=> 'Score',
 
 );

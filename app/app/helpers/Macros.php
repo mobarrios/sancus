@@ -29,6 +29,28 @@ Form::macro('medicalinsurances', function()
 
 });
 
+Form::macro('doctorscore', function($field, $label)
+{
+    $value  = Form::getValueAttribute($field);
+
+    $doctorscores = array('1','2','3');
+
+    $input  = Form::select($field, $doctorscores, $value, array('class'=>'form-control'));
+
+    return buildInput($input,$label);
+});
+
+Form::macro('doctor', function($field, $label)
+{
+    $value  = Form::getValueAttribute($field);
+
+    $doctors = Doctor::lists('name','id');
+
+    $input  = Form::select($field, $doctors, $value, array('class'=>'form-control'));
+
+    return buildInput($input,$label);
+});
+
 Form::macro('medicalinsurance', function($field, $label)
 {
     $value  = Form::getValueAttribute($field);

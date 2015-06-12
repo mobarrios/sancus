@@ -45,6 +45,27 @@
 						      <div class="panel-heading" role="tab" id="headingThree">
 						        <h4 class="panel-title">
 						          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#4" aria-expanded="false" aria-controls="collapseThree">
+						           {{Lang::get('sales.doctor')}}
+						          </a>
+						        </h4>
+						      </div>
+
+						      <div id="4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">  
+						        <div class="panel-body">
+									<div class="col-xs-12">
+										{{Form::doctor('doctor_id', Lang::get('sales.doctor'))}}
+										{{Form::doctorscore('doctorscore', Lang::get('sales.doctorScore'))}}
+									</div>								
+						        </div>
+						      </div>
+						      
+					    </div>
+
+					    <div class="panel panel-default">
+
+						      <div class="panel-heading" role="tab" id="headingThree">
+						        <h4 class="panel-title">
+						          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#4" aria-expanded="false" aria-controls="collapseThree">
 						           {{Lang::get('sales.paymentOption')}}
 						          </a>
 						        </h4>
@@ -57,6 +78,7 @@
 									</div>								
 						        </div>
 						      </div>
+
 					    </div>
 
 					    <div class="panel panel-default">

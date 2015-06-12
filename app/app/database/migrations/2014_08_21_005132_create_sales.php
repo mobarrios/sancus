@@ -21,6 +21,9 @@ class CreateSales extends Migration {
 		   $newtable->softDeletes();
 		   
 		   //relations
+		   $newtable->integer('doctor_id')->nullable()->unsigned();
+		   $newtable->foreign('doctor_id')->references('id')->on('doctors');	
+
 		   $newtable->integer('paymentoption_id')->nullable()->unsigned();
 		   $newtable->foreign('paymentoption_id')->references('id')->on('paymentoptions');	
 

@@ -15,5 +15,7 @@ return array(
 
 	'data' 				=> 'Datos',
 	'paymentOption' 	=> 'Metodo de Pago',
+	'doctor'			=> 'Medico',
+	'doctorScore'		=> 'Puntaje',
 
 );
