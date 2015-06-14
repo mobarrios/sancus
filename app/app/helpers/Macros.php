@@ -66,7 +66,17 @@ Form::macro('medicalinsuranceplan', function($field, $label, $id, $defaultMedica
 {
     $value  = Form::getValueAttribute($field);
 
-    $medicalinsurancesplans = Medicalinsuranceplan::lists('name','id');
+    $medicalinsurance_id = Form::getValueAttribute('medicalinsurance_id');
+
+    if(isset($medicalinsurance_id))
+    {
+        $medicalinsurancesplans = Medicalinsuranceplan::where('medicalinsurance_id','=',$medicalinsurance_id)->lists('name','id');
+    }else
+    {
+        $medicalinsurance_id    = 1;
+        $medicalinsurancesplans = Medicalinsuranceplan::where('medicalinsurance_id','=',$medicalinsurance_id)->lists('name','id');
+    }
+    
 
     $input  = Form::select($field, $medicalinsurancesplans, $value, array('class'=>'form-control','id'=>$id));
 
