@@ -51,15 +51,26 @@ Form::macro('doctor', function($field, $label)
     return buildInput($input,$label);
 });
 
-Form::macro('medicalinsurance', function($field, $label)
+Form::macro('medicalinsurance', function($field, $label, $id)
 {
     $value  = Form::getValueAttribute($field);
 
     $medicalinsurances = Medicalinsurance::lists('name','id');
 
-    $input  = Form::select($field, $medicalinsurances, $value, array('class'=>'form-control'));
+    $input  = Form::select($field, $medicalinsurances, $value, array('class'=>'form-control','id'=>$id));
 
-    return buildInput($input,$label);
+    return buildInput($input,$label, $id);
+});
+
+Form::macro('medicalinsuranceplan', function($field, $label, $id, $defaultMedicalInsuranceId)
+{
+    $value  = Form::getValueAttribute($field);
+
+    $medicalinsurancesplans = Medicalinsuranceplan::lists('name','id');
+
+    $input  = Form::select($field, $medicalinsurancesplans, $value, array('class'=>'form-control','id'=>$id));
+
+    return buildInput($input,$label, $id);
 });
 
 Form::macro('paymentoption', function($field, $label)

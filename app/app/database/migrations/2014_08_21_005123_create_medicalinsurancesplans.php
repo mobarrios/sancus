@@ -16,10 +16,12 @@ class CreateMedicalinsurancesplans extends Migration {
 		   $newtable->increments('id');
 		   $newtable->string('name', 100);
 		   $newtable->longText('description');
-		   $newtable->integer('medicalinsurance_id')->nullable()->unsigned();
-
+		   
 		   $newtable->timestamps();
 		   $newtable->softDeletes();
+
+		   //relations
+		   $newtable->integer('medicalinsurance_id')->nullable()->unsigned();
 		   $newtable->foreign('medicalinsurance_id')->references('id')->on('medicalinsurances');
         });
 	}

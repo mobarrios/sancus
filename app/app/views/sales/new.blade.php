@@ -203,34 +203,23 @@
 						});
 				});
 
-			     $("#client_name").autocomplete({      
-			     	 //source: "provider_search",
+	     		$("#client_name").autocomplete({    
 					source: function(request, response) {
-					$.ajax({
-					type: "POST",
-					url: '{{Config::get("constants.CLIENT_SEARCH_PATH_METHOD_POST")}}',
-					data:  {search : $("#client_name").val() },
-					dataType: "json",
-						success: function(data){
-						//$.each(data, function(key, value) {
-						//	console.log (key);
-						//});
-						response(data);
-					},                            
-					});
-
+						$.ajax({
+							type: "POST",
+							url: '{{Config::get("constants.CLIENT_SEARCH_PATH_METHOD_POST")}}',
+							data:  {search : $("#client_name").val() },
+							dataType: "json",
+								success: function(data){
+								response(data);
+							}                            
+						});
 					},
 					select: function(event, ui) {
-					//setea el id al attr data-id del input  item
-					$('#client_id').val(ui.item.id);
-					$('#client_id').attr('data-id',ui.item.id);
+						$('#client_id').val(ui.item.id);
+						$('#client_id').attr('data-id',ui.item.id);
 					}
-			  	 });
-			    /*
-				 $("#item").autocomplete({      
-			     	 source: "item_search"
-			  	 });
-				*/
+			  	});
 			
 				$("#item").autocomplete({
                     source: function(request, response) {

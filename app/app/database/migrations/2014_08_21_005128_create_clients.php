@@ -22,12 +22,17 @@ class CreateClients extends Migration {
 		   $newtable->string('phone', 100);
 		   $newtable->string('cell_phone', 100);
 		   $newtable->string('company_name', 100);
-		   $newtable->string('cuit', 20);
-		   $newtable->integer('medicalinsurance_id')->nullable()->unsigned();
+		   $newtable->string('cuit', 20);		   
 
 		   $newtable->timestamps();
 		   $newtable->softDeletes();
 
+		   //relations
+
+		   $newtable->integer('medicalinsuranceplan_id')->nullable()->unsigned();
+		   $newtable->foreign('medicalinsuranceplan_id')->references('id')->on('medicalinsurancesplans');
+
+		   $newtable->integer('medicalinsurance_id')->nullable()->unsigned();
 		   $newtable->foreign('medicalinsurance_id')->references('id')->on('medicalinsurances');
         });
 	}

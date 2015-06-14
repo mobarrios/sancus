@@ -9,11 +9,17 @@ class ProfileTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		$adminProfileName 	= Config::get('constants.ADMIN_PROFILE_NAME');
+		Profile::create(array(
+			'name' 	=> Config::get('constants.ADMIN_PROFILE_NAME'),
+		));
 
-		$profile 			= new Profile();
-		$profile->name 		= $adminProfileName;
-		$profile->save();
+		Profile::create(array(
+			'name' 	=> 'Profile 2',
+		));
+
+		Profile::create(array(
+			'name' 	=> 'Profile 3',
+		));
 	}
 
 }

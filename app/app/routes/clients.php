@@ -14,6 +14,8 @@
 	$moduleEditPathMethodPOST 	= Config::get('constants.'.$modelUpperCase.'_EDIT_PATH_METHOD_POST');
 
 	$moduleSearchPathMethodPOST	= Config::get('constants.'.$modelUpperCase.'_SEARCH_PATH_METHOD_POST');
+	
+
 
 	//GET
 	Route::get($module.'/{model?}/{search?}', 		array('as' => $module, 						'uses'  => $controller.'@getIndex'));

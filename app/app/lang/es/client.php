@@ -23,5 +23,6 @@ return array(
 	'phoneNumber' 		=> 'Telefono',
 	'cellPhoneNumber' 	=> 'Celular',	
 	'medicalInsurance'	=> 'Obra social',
+	'medicalInsurancePlan'	=> 'Plan de Obra social',
 
 );

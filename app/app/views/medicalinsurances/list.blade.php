@@ -15,8 +15,8 @@
 				<tr>
 					<td>{{$models->name}}</td>
 					<td>{{$models->email}}</td>
-					<td>{{$models->phoneNumber}}</td>
-					<td>{{$models->cellPhoneNumber}}</td>					
+					<td>{{$models->phone}}</td>
+					<td>{{$models->cell_phone}}</td>					
 					<td>
 						<div class="btn-group btn-group-xs">
 							<a href="{{route($editPathMethodGet,$models->id)}}" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a>

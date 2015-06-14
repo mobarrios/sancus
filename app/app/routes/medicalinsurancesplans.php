@@ -13,6 +13,7 @@
 	$moduleNewPathMethodPOST 	= Config::get('constants.'.$modelUpperCase.'_NEW_PATH_METHOD_POST');
 	$moduleEditPathMethodPOST 	= Config::get('constants.'.$modelUpperCase.'_EDIT_PATH_METHOD_POST');
 
+	$moduleMedicalinsuranceplansByMedicalinsuranceMethodPOST	= Config::get('constants.'.$modelUpperCase.'_BYMEDICALINSURANCE_SEARCH_PATH_METHOD_POST');
 
 	//GET
 	Route::get($module.'/{model?}/{search?}', 		array('as' => $module, 						'uses'  => $controller.'@getIndex'));
@@ -23,3 +24,16 @@
 	//POST
 	Route::post($moduleNewPathMethodPOST, 			array('as' => $moduleNewPathMethodPOST, 	'uses' 	=> $controller.'@postNew'));
 	Route::post($moduleEditPathMethodPOST.'/{id?}', array('as' => $moduleEditPathMethodPOST, 	'uses' 	=> $controller.'@postEdit'));
+	
+	Route::post($moduleMedicalinsuranceplansByMedicalinsuranceMethodPOST, function()
+	{
+		$id = Input::get('search');
+
+		$resp = Medicalinsuranceplan::where('medicalinsurance_id','=',$id)->get();
+		$res  = array();
+		foreach($resp as $r)
+		{
+			$res[] = array('id' => $r->id , 'text' => $r->name );
+		}
+		return Response::json($res);
+	});

@@ -158,6 +158,7 @@ return [
 
     'MEDICALINSURANCEPLAN_NEW_PATH_METHOD_POST'     => 'medicalinsurancesplans_new_post',
     'MEDICALINSURANCEPLAN_EDIT_PATH_METHOD_POST'    => 'medicalinsurancesplans_edit_post',
+    'MEDICALINSURANCEPLAN_BYMEDICALINSURANCE_SEARCH_PATH_METHOD_POST'    => 'medicalinsurancesplansbymedicalinsurance_post',
 
     //Doctor Constants
     'PERMISSION_MODULE_NAME'    => 'permissions',
