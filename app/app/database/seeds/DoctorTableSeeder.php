@@ -22,7 +22,7 @@ class DoctorTableSeeder extends Seeder {
 		));
 		
 		Doctor::create(array(
-			'name' 					=> 'Gonzalo',
+			'name' 					=> 'Martin',
 			'last_name'				=> 'Barrios',
 			'dni'					=> '2222222',
 			'address'				=> 'Saint Martin Boulevard 1234',
@@ -34,7 +34,7 @@ class DoctorTableSeeder extends Seeder {
 		));
 		
 		Doctor::create(array(
-			'name' 					=> 'Gonzalo',
+			'name' 					=> 'Julio',
 			'last_name'				=> 'Barrios',
 			'dni'					=> '2222222',
 			'address'				=> 'Saint Martin Boulevard 1234',
