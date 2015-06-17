@@ -33,7 +33,7 @@ Form::macro('doctorscore', function($field, $label)
 {
     $value  = Form::getValueAttribute($field);
 
-    $doctorscores = array('1','2','3','4','5','6','7','8','9','10');
+    $doctorscores = array('0','1','2','3','4','5','6','7','8','9','10');
 
     $input  = Form::select($field, $doctorscores, $value, array('class'=>'form-control'));
 

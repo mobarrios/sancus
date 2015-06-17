@@ -33,8 +33,10 @@
 					          		{{ Form::date('date') }}   
 					          	@endif
 					           <br>
-					         	<input class="form-control" placeholder='Cliente' id="client_name" value="{{Session::get('data')['client_name']}}">
+					         	<input class="form-control" placeholder='{{Lang::get("sales.client")}}' id="client_name" name="client_name" value="{{Session::get('data')['client_name']}} {{Session::get('data')['client_last_name']}} ">
 					         	<input type="hidden" name="client_id" id="client_id" data-id="{{Session::get('data')['client_id']}}" value="{{Session::get('data')['client_id']}}">
+					         	<input class="form-control" placeholder='{{Lang::get("sales.medicalInsurance")}}' id="medicalinsurance" name="medicalinsurance" value="{{Session::get('data')['medicalinsurance']}}" readonly>
+					         	<input class="form-control" placeholder='{{Lang::get("sales.medicalInsurancePlan")}}' id="medicalinsuranceplan" name="medicalinsuranceplan" value="{{Session::get('data')['medicalinsuranceplan']}}" readonly>
 					        </div>
 					      </div>
 
@@ -86,7 +88,7 @@
 						      <div class="panel-heading" role="tab" id="headingThree">
 						        <h4 class="panel-title">
 						          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#4" aria-expanded="false" aria-controls="collapseThree">
-						            Articulos
+						            {{Lang::get('sales.items')}}
 						          </a>
 						        </h4>
 						      </div>
@@ -99,19 +101,19 @@
 									</div>
 									<hr>							
 									<div class="col-xs-2">
-										<input class="form-control" placeholder='Cantidad' id='cantidad' name="cantidad">
+										<input class="form-control" placeholder='{{Lang::get("sales.quantity")}}' id='cantidad' name="cantidad">
 									</div>
 									<div class="col-xs-2">
 										  <input class="form-control" placeholder='$' id='price' name="price_per_unit">
 									</div>
 
 									<div class="col-xs-8">
-										<input class="form-control" placeholder='Observaciones' id='observations' name="observations">
+										<input class="form-control" placeholder='{{Lang::get("sales.observations")}}' id='observations' name="observations">
 									</div>
 									<br>
 									<br>
 									<div class="col-xs-12">
-										<a id='add_item' class='btn btn-xs btn-success'><span class="fa fa-plus"></span> Agregar </a>
+										<a id='add_item' class='btn btn-xs btn-success'><span class="fa fa-plus"></span> {{Lang::get('sales.add')}} </a>
 									</div>
 									{{Form::close()}}
 						        </div>
@@ -123,11 +125,11 @@
 					    <table class="table table-striped table-hover  table-responsive">
 					    	<thead>
 					    		<tr>
-					    			<th>Cod.</th>
-					    			<th>Cant.</th>
-					    			<th>Articulo</th>
-					    			<th>$ Unit.</th>
-					    			<th>S. Total</th>
+					    			<th>{{Lang::get('sales.code')}}</th>
+					    			<th>{{Lang::get('sales.quantity')}}</th>
+					    			<th>{{Lang::get('sales.item')}}</th>
+					    			<th>{{Lang::get('sales.pricePerUnit')}}</th>
+					    			<th>{{Lang::get('sales.subTotal')}}</th>
 					    			<th></th>
 					    		</tr>
 					    	</thead>
@@ -136,7 +138,7 @@
 					    			<td></td>
 					    			<td></td>
 					    			<td></td>
-					    			<td><strong>Total</strong></td>
+					    			<td><strong>{{Lang::get('sales.total')}}</strong></td>
 					    			<td> $ <strong>{{Session::get('array_total')}}</strong></td>
 					    			<td></td>
 					    		</tr>
@@ -160,8 +162,8 @@
 					    </table>
 			
 						<hr>		 
-					  	<a href="{{route('sales_cancel')}}" id="cancel" class="del btn btn-danger">Cancelar</a>
-					 	<a id="process" class="btn btn-success">Procesar</a>
+					  	<a href="{{route('sales_cancel')}}" id="cancel" class="del btn btn-danger">{{Lang::get('sales.cancel')}}</a>
+					 	<a id="process" class="btn btn-success">{{Lang::get('sales.process')}}</a>
 					</div>
 			  </div>
 		</div>
@@ -218,6 +220,8 @@
 					select: function(event, ui) {
 						$('#client_id').val(ui.item.id);
 						$('#client_id').attr('data-id',ui.item.id);
+						$('#medicalinsurance').val(ui.item.medicalinsurance);
+						$('#medicalinsuranceplan').val(ui.item.medicalinsuranceplan);
 					}
 			  	});
 			

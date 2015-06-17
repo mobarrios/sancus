@@ -10,4 +10,9 @@ class Medicalinsuranceplan extends Eloquent
 	{
 		return $this->belongsTo('Medicalinsurance');
 	}
+
+	public function client()
+	{
+		return $this->hasMany('Client');
+	}
 }

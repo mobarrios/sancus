@@ -17,5 +17,16 @@ return array(
 	'paymentOption' 	=> 'Metodo de Pago',
 	'doctor'			=> 'Medico',
 	'doctorScore'		=> 'Puntaje',
-
+	'medicalInsurance'  => 'Plan de Obra social',
+	'client'			=> 'Cliente',
+	'items'				=> 'Articulos',
+	'quantity'			=> 'Cantidad',
+	'observations'		=> 'Observaciones',
+	'add'				=> 'Agregar',
+	'item'				=> 'Articulo',
+	'pricePerUnit'		=> 'Precio Unitario',
+	'subTotal'			=> 'Sub total',
+	'total'				=> 'Total',
+	'cancel'			=> 'Cancelar',
+	'process'			=> 'Procesar',
 );

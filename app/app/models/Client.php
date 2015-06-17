@@ -25,7 +25,12 @@ class Client extends Eloquent
 
 	public function medicalinsurance()
 	{
-		return $this->hasOne('Medicalinsurance');
+		return $this->belongsTo('Medicalinsurance');
+	}
+
+	public function medicalinsuranceplan()
+	{
+		return $this->belongsTo('Medicalinsuranceplan');
 	}
 
 }

@@ -37,7 +37,11 @@
 			$res  = array();
 			foreach($resp as $r)
 			{
-				$res[] = array('id' => $r->id , 'label' => $r->name .' '.$r->last_name.' - '.$r->company_name );
+				$res[] = array(
+								'id' => $r->id , 
+								'label' => $r->name .' '.$r->last_name,
+								'medicalinsurance' => $r->medicalinsurance->name,
+								'medicalinsuranceplan' => $r->medicalinsuranceplan->name );
 			}
 			return Response::json($res);
 	});

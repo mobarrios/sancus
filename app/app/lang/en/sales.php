@@ -17,5 +17,17 @@ return array(
 	'paymentOption' 	=> 'Payment Option',
 	'doctor'			=> 'Doctor',
 	'doctorScore'		=> 'Score',
-
+	'medicalInsurance'  => 'Medical Insurance',
+	'medicalInsurancePlan'  => 'Medical Insurance plan',
+	'client'			=> 'Client',
+	'items'				=> 'Items',
+	'quantity'			=> 'Quantity',
+	'observations'		=> 'Observations',
+	'add'				=> 'Add',
+	'item'				=> 'Item',
+	'pricePerUnit'		=> 'Price per unit',
+	'subTotal'			=> 'Sub total',
+	'total'				=> 'Total',
+	'cancel'			=> 'Cancel',
+	'process'			=> 'Process',
 );

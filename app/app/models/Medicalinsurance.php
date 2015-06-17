@@ -15,4 +15,9 @@ class Medicalinsurance extends Eloquent
 	{
 		return $this->hasMany('Medicalinsurancesplan');
 	}
+
+	public function client()
+	{
+		return $this->hasMany('Client');
+	}
 }

@@ -106,21 +106,34 @@ class SaleController extends BaseController
 
 	public function postAdditem()
 	{
-		$date_sales		 = Input::get('date');
-		$client_id_sales = Input::get('client_id');
+		$date_sales		 		= Input::get('date');
+		$client_id_sales 		= Input::get('client_id');
+		$medicalInsurance 		= Input::get('medicalinsurance');
+		$medicalInsurancePlan 	= Input::get('medicalinsuranceplan');
+		$doctorId				= Input::get('doctor_id');
+		$doctorscore			= Input::get('doctorscore');
+		$paymentOptionId		= Input::get('paymentoption_id');
 
 		//datos del remito
 		if(!Session::has('data'))
 		{	
 			$client 	= Client::find($client_id_sales);
-			$data 		= array('date'			=> $date_sales,
-								'client_id'		=> $client_id_sales, 
-								'client_name'	=> $client->name.' '. $client->last_name .' - '.$client->company_name
+			$data 		= array(
+									'date'				=> $date_sales,
+									'client_id'			=> $client_id_sales, 
+									'client_name'		=> $client->name,
+									'client_last_name' 	=> $client->last_name,
+									'medicalinsurance' 	=> $medicalInsurance,
+									'medicalinsuranceplan' 	=> $medicalInsurancePlan,
+									'doctor_id'				=> $doctorId,
+									'doctorscore'			=> $doctorscore,
+									'paymentoption_id'		=> $paymentOptionId,
 								);
-
-			Session::put('data',$data);
+			error_log("Data array : ".http_build_query($data));
+			Session::put('data',$data);			
 		}
 		
+
 		//items de remito
 		
 		$item 			= Item::find(Input::get('item_id'));
